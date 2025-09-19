@@ -19,10 +19,8 @@ app.get("/",(req,res)=>{
 //definisco la rotta per i movies
 app.use("/api/movies", movieRouter);
 
-
-
-
+//dico al server di rimanere in ascolto
 app.listen(port,()=>{
     console.log("server in ascolto")
-})
+});
 
