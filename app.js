@@ -1,10 +1,11 @@
 //importo express e creo l'istanza dell'app
+const express = require("express");
+const connection=require("./data/db.js")
+const app = express();
 
-const express=require("express");
-const app=express();
 
 //definisco la porta su cui far girare l'app
-const port=3000;
+const port=process.env.PORT;
 
 //definisco la rotta base
 app.get("/",(req,res)=>{
