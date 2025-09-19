@@ -15,7 +15,17 @@ const index=(req,res)=>{
 
 //show
 const show=(req,res)=>{
-    console.log('Metodo show');
+    //recupero l'id
+    const {id} = req.params;
+
+    const sqlMovie = "SELECT * FROM movies WHERE id = ?";
+
+    connection.query(sqlMovie, [id], (err,resultMovie)=>{
+        if(err){
+            return res.status(500).json({error: `Errore nella query: ${err}`})
+        }
+        res.send(resultMovie);
+    })
 }
 
 module.exports={
